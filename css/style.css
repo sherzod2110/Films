@@ -115,10 +115,17 @@
 
 .day {
   cursor: pointer;
-
 }
 .day:active {
   cursor: pointer;
-  filter: invert(38%) sepia(47%) saturate(3350%) hue-rotate(332deg) brightness(99%) contrast(115%);
+  filter: invert(38%) sepia(47%) saturate(3350%) hue-rotate(332deg)
+    brightness(99%) contrast(115%);
+}
 
+@media only screen and (max-width: 1400px) {
+  .bnniama {
+    width: 717px !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
