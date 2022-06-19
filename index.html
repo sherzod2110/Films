@@ -9,63 +9,122 @@
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/style.css">
   </head>
+  <div class="top__btn">
   <body>
-    <!-- ============ HEADER =========== -->
-    <header>
-      <div class="container">
-        <h1 class="text-center mt-3 alert alert-info w-75 ms-auto me-auto">Movies</h1>
-      </div>
-    </header>
-    <!-- ============ END HEADER =========== -->
+    
+    
+    
+    
+    <div class="container">
+        <!-- <div class="slider"></div>
+        <ion-icon class="night" name="moon"></ion-icon>
+        <ion-icon class="day" name="sunny"></ion-icon> -->
+        <div class="row">
+          <div class="top__btn">
+          <!-- <h1 class="h1 fw-bold text-center">Movies</h1> -->
+          <h1 class="text-center m-0 mt-3 alert alert-primary ms-auto me-auto">Movies</h1>
 
 
-    <!-- =============== MAIN ============== -->
-    <main>
-      <section>
-        <div class="container">
-          <form class="js-form d-flex align-items-center ms-auto me-auto mt-3 w-50" action="https://echo.htmlacademy.ru">
-
-            <div style="width: 300px;">
-                <p class="m-0 ms-2 fw-bold text-primary" style="font-size: 20px;">
-                  Search:
-                  <span class="js-results-2">
-
-                  </span>
-                </p>
-                <input class="js-input ps-2 w-100 border-3 border-dark fw-bold rounded-3" style="height: 40px;" type="search" placeholder="Search" />
-            </div>
-
-            <div style="width: 300px;">
-                <p class="m-0 ms-5 fw-bold text-primary" style="font-size: 20px;"> Genres:
-                  <span class="js-results">
-                    
-                  </span>
-                </p>
-                <select class="js-select w-100 ms-5 border-3 border-dark fw-bold rounded-3" style="height: 40px;">
-                    <option value="all">All</option>
-                  </select>
-            </div>
-            
-          </form>
+          
         </div>
-      </section>
-    </main>
-    <!-- =============== END MAIN ============== -->
+        <div class="col-3 ps-0">
+          <form class="js-form ms-auto me-auto mt-3" action="https://echo.htmlacademy.ru">
+            
+                    <div style="width: 300px;">
+                        <p class="m-0 ms-2 fw-bold text-primary" style="font-size: 20px;">
+                          Search:
+                          <span class="js-results-2">
+                          </span>
+                        </p>
+                        <input class="js-input ps-2 w-100 border-3 border-dark fw-bold rounded-3" style="height: 40px;" type="search" placeholder="Search" />
+                      </div>
+                      
+                      
+                      <div style="width: 300px;">
+                        <p class="m-0 ms-2 fw-bold text-primary" style="font-size: 20px;"> Genres:
+                          <span class="js-results">
+                          </span>
+                        </p>
+                        <select class="js-select w-100 border-3 border-dark fw-bold rounded-3" style="height: 40px;">
+                          <option value="all">All</option>
+                        </select>
+                      </div>
+                      
+                      <div style="width: 300px;">
+                        <p class="m-0 ms-2 fw-bold text-primary" style="font-size: 20px;">
+                          Raiting:
+                          <span class="js-results-3">
+                          </span>
+                        </p>
+                        <input class="js-raiting ps-2 w-100 border-3 border-dark fw-bold rounded-3" style="height: 40px;" type="number" placeholder="Raiting" />
+                      </div>
+
+                      
+                      
+                    <div style="width: 300px;">
+                      <p class="m-0 ms-2 fw-bold text-primary" style="font-size: 20px;"> Az - Za:
+                        <span class="js-results-4">
+                        </span>
+                      </p>
+                      <select class="js-select w-100 border-3 border-dark fw-bold rounded-3" style="height: 40px;">
+                        <option value="az">Aa-Zz</option>
+                        <option value="az">Zz-Aa</option>
+                      </select>
+                    </div>
+                  </form>
+                  <h2 class="h2 mb-0 mt-3 alert alert-info mb-1" style="width: 300px;">Bookmark movies</h2>
+                  <ul class="js-list-mark rounded ps-0 h-100" style="width: 300px;">
+
+                  </ul>
+                  </div>
+                  
+                  
+                  <div class="col-9" style="margin-top: 40px;">
+                    <div class="alert alert-info w-100 d-flex align-items-center">
+                      <div class="box-3 ms-3">
+                        <div class="slider"></div>
+                            <ion-icon class="night" name="moon" style="width: 30px; height: 25px;"></ion-icon>
+                            <ion-icon class="day" name="sunny" style="width: 30px; height: 25px;"></ion-icon>
+                      </div>
+                      <p class="fw-bold mb-0 ms-5">Use the form on the left to search for a movie</p>
+                    </div>
+                    <ul class="js-list list-unstyled mt-3 d-flex flex-wrap justify-content-around">
+
+                      <!-- <button type="button" class="bokmark-info btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Launch demo modal
+                        </button> -->
 
 
-    <!-- =============== FOOTER ============== -->
-    <footer>
-      <div class="container">
-        <ul class="js-list list-unstyled mt-3 d-flex flex-wrap justify-content-around gap-3">
 
-        
-
-        </ul>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    </ul>
+                  </div>
+        </div>
       </div>
-    </footer>
-    <!-- =============== END FOOTER ============== -->
-
+    </div>
+    
+  </div>
+    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/utilis.js"></script>
     <script src="./js/films.js"></script>
     <script src="./js/main.js"></script>
   </body>
