@@ -17,7 +17,7 @@ let slider = $(".slider");
 let day = $(".night");
 let night = $(".day");
 
-let modal = $(".modal-body")
+let modal = $(".modal-body");
 let ar = [];
 
 // ARRAY BOOKMARKS
@@ -49,7 +49,6 @@ const renderGenres = function (arr) {
   });
 };
 
-
 // RENDER FUNCTION
 const renderMovies = function (arr, htmlElement) {
   arr.forEach(function (film) {
@@ -77,30 +76,23 @@ const renderMovies = function (arr, htmlElement) {
     elButtonBookmark.textContent = "Bookmark";
     elButtonBookmark.dataset.bookmarkBtnId = film.id;
 
-
-
-
     let elButtonInfo = document.createElement("button");
-    elButtonInfo.setAttribute("class", "bokmark-info btn btn-info text-white w-100");
+    elButtonInfo.setAttribute(
+      "class",
+      "bokmark-info btn btn-info text-white w-100"
+    );
     elButtonInfo.setAttribute("data-bs-toggle", "modal");
     elButtonInfo.setAttribute("data-bs-target", "#exampleModal");
-    // elButtonInfo.setAttribute("data-bs-target=", "#exampleModal");
 
-    
     elButtonInfo.textContent = "Info";
     elButtonInfo.dataset.infoBtnId = film.id;
-    
-
-
-
-
 
     let elBox = document.createElement("div");
     elBox.classList.add("list__box");
 
     elImg.src = film.poster;
     elHeading.textContent = film.title;
-    // elP.textContent = film.overview;
+    elP.textContent = film.overview;
     elP2.textContent = film.genres.join(" ");
     elLink.setAttribute("href", `https://www.youtube.com/`);
     elLink.setAttribute("class", "w-100 btn btn-success text-white");
@@ -150,39 +142,27 @@ elInput.addEventListener("input", (evt) => {
   });
 });
 
-
-
 let infoFunsiya = function (www) {
+  modal.innerHTML = "";
+
   www.forEach(function (film) {
     let elText = document.createElement("p");
     elText.textContent = film.title;
-    
+
     modal.append(elText);
+  });
+};
 
-  })
-}
 infoFunsiya(films);
+// elList.addEventListener("click", function (evt) {
 
+//   if (evt.target.matches("bokmark-info")) {
+//     let idBtn = evt.target.dataset.infoBtnId;
+//     let foundInfo = films.find((film) => film.id === idBtn);
 
-elList.addEventListener("click", function (evt) {
-
-  if (evt.target.matches("bokmark-info")) {
-    let idBtn = evt.target.dataset.infoBtnId;
-    let foundInfo = films.find((film) => film.id === idBtn);
-
-
-    if(!modal.includes(foundInfo)) {
-      modal.push(foundInfo)
-      infoFunsiya()
-    }
-  }
-})
-
-
-
-
-
-
+//       modal.push(foundInfo)
+//     }
+//   })
 
 // BOOKMARKS DELETE
 bokmarkList.addEventListener("click", function (evt) {
@@ -195,7 +175,6 @@ bokmarkList.addEventListener("click", function (evt) {
     renderBookmarks(bookmarks, bokmarkList);
   }
 });
-
 
 // REMOVE BOOKMARKS
 const renderBookmarks = function (arr, htmlElement) {
@@ -227,26 +206,24 @@ elList.addEventListener("click", function (evt) {
   }
 });
 
-
 function daySwitch() {
   slideBtn.style.backgroundColor = "#434d57";
   slider.style.backgroundColor = "#E0FFFF";
 
-  a = "day";
+  // a = "day";
 
-  colorChange(a);
+  // colorChange(a);
 }
 
 function nightSwitch() {
   slideBtn.style.backgroundColor = "";
   slider.style.backgroundColor = "";
 
-  a = "night";
+  // a = "night";
 
-  colorChange(a);
+  // colorChange(a);
 }
 
 day.addEventListener("click", daySwitch);
 
 night.addEventListener("click", nightSwitch);
-
