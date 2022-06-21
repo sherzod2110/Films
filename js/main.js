@@ -18,10 +18,11 @@ let day = $(".night");
 let night = $(".day");
 
 let modal = $(".modal-body");
-let ar = [];
 
 // ARRAY BOOKMARKS
-let bookmarks = [];
+
+const localBok = JSON.parse(window.localStorage.getItem("bookmarks"));
+let bookmarks = localBok || [];
 
 // RESULTS ELEMENS LENGTH
 elResults.textContent = films.length;
@@ -52,7 +53,6 @@ const renderGenres = function (arr) {
 // RENDER FUNCTION
 const renderMovies = function (arr, htmlElement) {
   arr.forEach(function (film) {
-    film.isMark = false;
     let elLi = document.createElement("li");
     elLi.classList.add("list__item");
 
@@ -92,7 +92,7 @@ const renderMovies = function (arr, htmlElement) {
 
     elImg.src = film.poster;
     elHeading.textContent = film.title;
-    elP.textContent = film.overview;
+    // elP.textContent = film.overview;
     elP2.textContent = film.genres.join(" ");
     elLink.setAttribute("href", `https://www.youtube.com/`);
     elLink.setAttribute("class", "w-100 btn btn-success text-white");
@@ -155,14 +155,15 @@ let infoFunsiya = function (www) {
 
 infoFunsiya(films);
 // elList.addEventListener("click", function (evt) {
-
-//   if (evt.target.matches("bokmark-info")) {
+//   if (evt.target.matches(".bokmark-info")) {
 //     let idBtn = evt.target.dataset.infoBtnId;
 //     let foundInfo = films.find((film) => film.id === idBtn);
-
-//       modal.push(foundInfo)
-//     }
-//   })
+//     // if (!modal.includes(foundInfo)){
+//       modal.append(foundInfo);
+//       console.log(modal);
+//     // }
+//   }
+// });
 
 // BOOKMARKS DELETE
 bokmarkList.addEventListener("click", function (evt) {
@@ -171,7 +172,14 @@ bokmarkList.addEventListener("click", function (evt) {
     const index = bookmarks.findIndex((bookmark) => bookmark.id === btnId);
     bookmarks.splice(index, 1);
 
+    window.localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+
+    
     bokmarkList.innerHTML = "";
+
+    if (bookmarks.length === 0) {
+      window.localStorage.removeItem("bookmarks");
+    }
     renderBookmarks(bookmarks, bokmarkList);
   }
 });
@@ -184,6 +192,7 @@ const renderBookmarks = function (arr, htmlElement) {
     const removBtn = document.createElement("button");
     removBtn.setAttribute("class", "remove-button btn btn-danger");
     removBtn.textContent = "Remove";
+    window.localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
 
     removBtn.dataset.delete = bokmark.id;
 
@@ -193,7 +202,6 @@ const renderBookmarks = function (arr, htmlElement) {
     htmlElement.appendChild(newItem2);
   });
 };
-
 elList.addEventListener("click", function (evt) {
   if (evt.target.matches(".mark-button")) {
     const bookmarkId = evt.target.dataset.bookmarkBtnId;
@@ -201,15 +209,17 @@ elList.addEventListener("click", function (evt) {
     const foundBookmark = films.find((film) => film.id === bookmarkId);
     if (!bookmarks.includes(foundBookmark)) {
       bookmarks.push(foundBookmark);
+      window.localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
       renderBookmarks(bookmarks, bokmarkList);
     }
   }
 });
 
+
 function daySwitch() {
   slideBtn.style.backgroundColor = "#434d57";
   slider.style.backgroundColor = "#E0FFFF";
-
+  
   // a = "day";
 
   // colorChange(a);
@@ -218,12 +228,14 @@ function daySwitch() {
 function nightSwitch() {
   slideBtn.style.backgroundColor = "";
   slider.style.backgroundColor = "";
-
+  
   // a = "night";
-
+  
   // colorChange(a);
 }
 
 day.addEventListener("click", daySwitch);
 
 night.addEventListener("click", nightSwitch);
+
+renderBookmarks(localBok, bokmarkList);
